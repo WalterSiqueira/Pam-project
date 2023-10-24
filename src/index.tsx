@@ -42,9 +42,6 @@ export const Home = () => {
             <TouchableOpacity onPress={adcTarefa} activeOpacity={0.7} style={styles.button}>
                 <Text style={styles.buttonText}>Adicionar</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={removerTarefa} activeOpacity={0.7} style={styles.button}>
-                <Text style={styles.buttonText}>remover</Text>
-            </TouchableOpacity>
             <Text style={styles.title}>Lista de tarefas</Text>
 
             {/*Scrollbar*/}
@@ -60,7 +57,7 @@ export const Home = () => {
                 data={tarefas}
                 keyExtractor={(item: Tarefa) => item.id}
                 renderItem={({item} : {item: Tarefa}) => (
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => removerTarefa(item.id)}>
                         <Text style={styles.renderList}>{item.title}</Text>
                     </TouchableOpacity>
                 )}
